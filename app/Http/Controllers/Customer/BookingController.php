@@ -56,6 +56,7 @@ class BookingController extends Controller
         }
 
         $pricing = $this->pricingService->calculate($vehicle, $pickupDatetime, $returnDatetime, $needsDriver);
+        $provinces = \App\Models\Province::orderBy('name')->get();
 
         return view('customer.bookings.create', compact(
             'vehicle',
@@ -65,7 +66,8 @@ class BookingController extends Controller
             'pickupAddress',
             'returnAddress',
             'needsDriver',
-            'pricing'
+            'pricing',
+            'provinces'
         ));
     }
 
@@ -84,7 +86,19 @@ class BookingController extends Controller
     {
         Gate::authorize('view', $booking);
 
-        $booking->load(['vehicle.primaryImage', 'payments', 'review']);
+        $booking->load([
+            'vehicle.primaryImage',
+            'payments',
+            'review',
+            'pickupProvince',
+            'pickupRegency',
+            'pickupDistrict',
+            'pickupVillage',
+            'returnProvince',
+            'returnRegency',
+            'returnDistrict',
+            'returnVillage',
+        ]);
 
         return view('customer.bookings.show', compact('booking'));
     }

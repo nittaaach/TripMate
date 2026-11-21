@@ -115,7 +115,7 @@
                         <div class="pt-2 flex flex-col sm:flex-row items-center justify-between gap-4">
                             <div>
                                 <span class="text-xs text-slate-400 block">Tarif per hari</span>
-                                <span class="text-xl font-extrabold text-slate-900">
+                                <span class="text-xl font-extrabold text-slate-900 whitespace-nowrap">
                                     Rp {{ number_format((float) $v->daily_rate, 0, ',', '.') }}
                                     <span class="text-xs font-normal text-slate-500">/ hari</span>
                                 </span>

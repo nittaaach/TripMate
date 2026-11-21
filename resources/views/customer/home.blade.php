@@ -95,12 +95,12 @@
                             @endif
                         </div>
                     </div>
-                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between">
-                        <div>
+                    <div class="mt-5 pt-4 border-t border-slate-100 flex items-center justify-between gap-3">
+                        <div class="min-w-0">
                             <span class="text-xs text-slate-400 block">Tarif per hari</span>
-                            <span class="text-base font-bold text-blue-600">Rp {{ number_format((float) $vehicle->daily_rate, 0, ',', '.') }}</span>
+                            <span class="text-base font-bold text-blue-600 whitespace-nowrap">Rp {{ number_format((float) $vehicle->daily_rate, 0, ',', '.') }}</span>
                         </div>
-                        <a href="{{ route('customer.vehicles.show', $vehicle) }}" class="text-xs font-semibold bg-slate-900 text-white px-3.5 py-2 rounded-lg hover:bg-slate-800 transition">
+                        <a href="{{ route('customer.vehicles.show', $vehicle) }}" class="text-xs font-semibold bg-slate-900 text-white px-3.5 py-2 rounded-lg hover:bg-slate-800 transition shrink-0 whitespace-nowrap">
                             Detail Mobil
                         </a>
                     </div>

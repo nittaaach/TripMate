@@ -100,12 +100,12 @@
                 </div>
             </div>
 
-            <div class="p-6 pt-0 border-t border-slate-100 mt-2 flex items-center justify-between">
-                <div>
+            <div class="p-6 pt-0 border-t border-slate-100 mt-2 flex items-center justify-between gap-3">
+                <div class="min-w-0">
                     <span class="text-xs text-slate-400 block">Tarif Sewa</span>
-                    <span class="text-lg font-bold text-blue-600">Rp {{ number_format((float) $vehicle->daily_rate, 0, ',', '.') }}<span class="text-xs text-slate-400 font-normal">/hari</span></span>
+                    <span class="text-lg font-bold text-blue-600 whitespace-nowrap">Rp {{ number_format((float) $vehicle->daily_rate, 0, ',', '.') }}<span class="text-xs text-slate-400 font-normal">/hari</span></span>
                 </div>
-                <div class="flex gap-2">
+                <div class="flex gap-2 shrink-0">
                     <a href="{{ route('customer.vehicles.show', $vehicle) }}" class="px-3.5 py-2 border border-slate-300 text-slate-700 rounded-lg text-xs font-semibold hover:bg-slate-50 transition">
                         Detail
                     </a>

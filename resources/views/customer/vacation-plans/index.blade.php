@@ -26,12 +26,12 @@
                 <p class="text-xs text-slate-500">
                     📍 Dari: {{ Str::limit($plan->origin_address, 50) }}
                 </p>
-                <div class="flex flex-wrap gap-4 text-xs text-slate-600 pt-2">
-                    <span>📅 {{ $plan->start_date->format('d M Y') }} - {{ $plan->end_date->format('d M Y') }} ({{ $plan->rental_days }} hari)</span>
-                    <span>👥 {{ $plan->passenger_count }} Penumpang</span>
-                    <span>🧳 Bagasi: {{ $plan->luggage_level->label() }}</span>
+                <div class="flex flex-wrap gap-2 sm:gap-4 text-xs text-slate-600 pt-2">
+                    <span class="whitespace-nowrap">📅 {{ $plan->start_date->format('d M Y') }} - {{ $plan->end_date->format('d M Y') }} ({{ $plan->rental_days }} hari)</span>
+                    <span class="whitespace-nowrap">👥 {{ $plan->passenger_count }} Penumpang</span>
+                    <span class="whitespace-nowrap">🧳 Bagasi: {{ $plan->luggage_level->label() }}</span>
                     @if($plan->estimated_distance_km)
-                        <span>🚗 Rute: ~{{ number_format((float) $plan->estimated_distance_km, 1) }} km</span>
+                        <span class="whitespace-nowrap">🚗 Rute: ~{{ number_format((float) $plan->estimated_distance_km, 1) }} km</span>
                     @endif
                 </div>
             </div>

@@ -41,7 +41,7 @@
                 <div class="flex flex-wrap gap-4 text-xs text-slate-500">
                     <span>📅 {{ $b->pickup_datetime->format('d M Y H:i') }} s/d {{ $b->return_datetime->format('d M Y H:i') }}</span>
                     <span>⏱️ {{ $b->rental_days }} Hari</span>
-                    <span>💰 Total: <strong class="text-slate-800 font-bold">Rp {{ number_format((float) $b->total_amount, 0, ',', '.') }}</strong></span>
+                    <span class="whitespace-nowrap">💰 Total: <strong class="text-slate-800 font-bold whitespace-nowrap">Rp {{ number_format((float) $b->total_amount, 0, ',', '.') }}</strong></span>
                 </div>
             </div>
 

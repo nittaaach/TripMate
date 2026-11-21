@@ -10,6 +10,7 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
+    @stack('styles')
 </head>
 <body class="bg-slate-100 text-slate-800 min-h-screen flex">
     <!-- Sidebar -->
@@ -56,7 +57,7 @@
     </aside>
 
     <!-- Main Content Area -->
-    <div class="flex-grow flex flex-col">
+    <div class="flex-grow flex flex-col min-w-0">
         <!-- Topbar -->
         <header class="bg-white border-b border-slate-200 h-16 flex items-center justify-between px-8">
             <h1 class="text-lg font-semibold text-slate-800">@yield('page_title', 'Dashboard')</h1>
@@ -93,5 +94,6 @@
             @yield('content')
         </main>
     </div>
+    @stack('scripts')
 </body>
 </html>

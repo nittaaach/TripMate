@@ -10,6 +10,7 @@
     <style>
         body { font-family: 'Plus Jakarta Sans', sans-serif; }
     </style>
+    @stack('styles')
 </head>
 <body class="bg-slate-50 text-slate-800 flex flex-col min-h-screen">
     <!-- Navbar -->
@@ -81,5 +82,6 @@
     <footer class="bg-white border-t border-slate-200 mt-12 py-8 text-center text-sm text-slate-500">
         <p>&copy; {{ date('Y') }} TripMate — Platform Rental Mobil Berbasis Preferensi Perjalanan.</p>
     </footer>
+    @stack('scripts')
 </body>
 </html>

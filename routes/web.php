@@ -25,6 +25,16 @@ Route::middleware('guest')->group(function () {
 Route::post('/logout', [AuthController::class, 'logout'])->middleware('auth')->name('logout');
 
 // ==========================================
+// Regional Indonesia Address API Routes (AJAX)
+// ==========================================
+Route::prefix('regional')->as('regional.')->group(function () {
+    Route::get('/provinces', [\App\Http\Controllers\RegionalAddressController::class, 'provinces'])->name('provinces');
+    Route::get('/regencies', [\App\Http\Controllers\RegionalAddressController::class, 'regencies'])->name('regencies');
+    Route::get('/districts', [\App\Http\Controllers\RegionalAddressController::class, 'districts'])->name('districts');
+    Route::get('/villages', [\App\Http\Controllers\RegionalAddressController::class, 'villages'])->name('villages');
+});
+
+// ==========================================
 // Public Customer Routes
 // ==========================================
 Route::get('/', [Customer\HomeController::class, 'index'])->name('home');

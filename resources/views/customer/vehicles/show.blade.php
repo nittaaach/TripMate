@@ -119,15 +119,15 @@
         <div class="space-y-6">
             <div class="bg-white rounded-3xl border border-slate-200 p-6 shadow-sm sticky top-24">
                 <span class="text-xs text-slate-400 block mb-1">Tarif Sewa Harian</span>
-                <div class="text-3xl font-extrabold text-blue-600 mb-4">
+                <div class="text-3xl font-extrabold text-blue-600 mb-4 whitespace-nowrap">
                     Rp {{ number_format((float) $vehicle->daily_rate, 0, ',', '.') }}
                     <span class="text-xs font-normal text-slate-400">/ hari</span>
                 </div>
 
                 <div class="bg-slate-50 p-4 rounded-xl text-xs space-y-2 mb-6">
-                    <div class="flex justify-between">
+                    <div class="flex items-center justify-between gap-2">
                         <span class="text-slate-500">Deposit Jaminan:</span>
-                        <strong class="text-slate-800">Rp {{ number_format((float) $vehicle->deposit_amount, 0, ',', '.') }}</strong>
+                        <strong class="text-slate-800 whitespace-nowrap shrink-0 text-right">Rp {{ number_format((float) $vehicle->deposit_amount, 0, ',', '.') }}</strong>
                     </div>
                     <div class="flex justify-between">
                         <span class="text-slate-500">Sopir Tersedia:</span>

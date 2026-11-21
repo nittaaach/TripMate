@@ -38,6 +38,26 @@ class DashboardController extends Controller
             ->take(5)
             ->get();
 
-        return view('admin.dashboard', compact('stats', 'recentBookings', 'pendingPayments'));
+        // Active bookings formatted for operational monitoring map
+        $activeMapBookings = Booking::with(['user', 'vehicle'])
+            ->whereIn('status', [BookingStatus::Pending, BookingStatus::Confirmed, BookingStatus::Ongoing])
+            ->whereNotNull('pickup_latitude')
+            ->whereNotNull('pickup_longitude')
+            ->latest()
+            ->take(25)
+            ->get()
+            ->map(fn ($b) => [
+                'code' => $b->booking_code,
+                'customer' => $b->user->name,
+                'vehicle' => $b->vehicle->brand . ' ' . $b->vehicle->model,
+                'status' => $b->status->label(),
+                'status_val' => $b->status->value,
+                'lat' => (float) $b->pickup_latitude,
+                'lng' => (float) $b->pickup_longitude,
+                'address' => $b->pickup_address,
+                'url' => route('admin.bookings.show', $b->id),
+            ]);
+
+        return view('admin.dashboard', compact('stats', 'recentBookings', 'pendingPayments', 'activeMapBookings'));
     }
 }

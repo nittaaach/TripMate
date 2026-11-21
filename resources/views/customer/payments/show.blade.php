@@ -19,7 +19,7 @@
 
             <div class="mt-4 p-4 bg-blue-50 border border-blue-100 rounded-2xl">
                 <span class="text-xs text-blue-700 block mb-0.5">Total yang Harus Ditransfer</span>
-                <span class="text-3xl font-black text-blue-700">
+                <span class="text-3xl font-black text-blue-700 whitespace-nowrap inline-block">
                     Rp {{ number_format((float) $booking->total_amount, 0, ',', '.') }}
                 </span>
                 <span class="text-[11px] text-blue-500 block mt-1">Nomor Booking: <strong>{{ $booking->booking_code }}</strong></span>
